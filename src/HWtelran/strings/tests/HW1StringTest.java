@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class HWStringTest  {
+class HW1StringTest  {
 
 	@Test
 	void compareToTest() {
