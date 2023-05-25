@@ -65,7 +65,7 @@ class HW1StringTest  {
 		assertEquals(true, myStr.contains(" W"));
 		assertTrue(myStr.contains("H"));
 		assertFalse(myStr.contains("h"));
-		assertTrue(myStr.contains("ello"));
+		assertTrue(myStr.contains("ELLO"));
 		assertFalse(myStr.contains("lelo"));
 		//assertFalse("not contains ", myStr.contains("Hi"));
 	}
@@ -103,8 +103,8 @@ class HW1StringTest  {
 		String str  = "java";
 		String tstr = "Java";
 		String tstr1 = "JAVA";
-		assertTrue(str.equals(tstr));
-		assertTrue(str.equals(tstr1));
+		assertTrue(str.equalsIgnoreCase(tstr));
+		assertTrue(str.equalsIgnoreCase(tstr1));
 	}
 //	@Test
 //	void  formatTest() {
@@ -155,9 +155,9 @@ class HW1StringTest  {
 	@Test
 	void  matchesTest() {
 		String regText = "aaaatrue !!!!";
-		//String reg = "12N-4321";
-		//assertTrue(reg. matches("^\d{2}N-\d{4}&"));
-		assertTrue(regText. matches("^(.*)true(.*)&"));
+		String reg = "12N-4321";
+		assertTrue(reg.matches("^\\d{2}N-\\d{4}$"));
+		assertTrue(regText.matches("(.*)true(.*)"));
 	}
 	@Test
 	void  regionMatchesTest() {
@@ -167,11 +167,11 @@ class HW1StringTest  {
 		assertFalse(regText1.regionMatches( 0, regText2, 0, 22));
 	}
 	@Test
-	void startWithTest() {
+	void startsWithTest() {
 		String str = "javaHello";
-		assertTrue(str.endsWith("java"));
-		assertFalse(str.endsWith("ava"));
-		assertFalse(str.endsWith("Java"));
+		assertTrue(str.startsWith("java"));
+		assertFalse(str.startsWith("ava"));
+		assertFalse(str.startsWith("Java"));
 	}
 	@Test
 	void trimTest() {
