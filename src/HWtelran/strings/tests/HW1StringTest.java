@@ -16,6 +16,11 @@ class HW1StringTest  {
 		assertEquals(0, myStr1.compareTo(myStr2));
 		assertEquals(-6, myStr1.compareTo(myStr3));
 		assertEquals(6, myStr3.compareTo(myStr2));
+		assertTrue("hello".compareTo(myStr2)>0);
+		assertEquals('8'-'1',"8".compareToIgnoreCase("12345"));
+		assertEquals(-4,"12345".compareToIgnoreCase("12349"));
+		assertEquals(3,"1234587".compareToIgnoreCase("1234"));
+		assertEquals('l'-'L',"Hello".compareToIgnoreCase("HeLLo"));
 	}
 	@Test
 	void   charAtTest() {
@@ -50,6 +55,11 @@ class HW1StringTest  {
 		assertEquals(0,myStr5.compareToIgnoreCase(myStr7));
 		assertEquals(-4,myStr5.compareToIgnoreCase(myStr6));
 		assertEquals(4,myStr6.compareToIgnoreCase(myStr5));
+		assertTrue(myStr5.compareToIgnoreCase(myStr7)==0);
+		assertTrue(myStr6.compareToIgnoreCase(myStr5)>0);
+		assertEquals('8'-'1',"8".compareToIgnoreCase("12345"));
+		assertEquals(-4,"12345".compareToIgnoreCase("12349"));
+		assertEquals(3,"1234587".compareToIgnoreCase("1234"));
 	}
 	@Test
 	void   concatTest() {
@@ -88,6 +98,7 @@ class HW1StringTest  {
 	void endsWithTest() {
 	String str3 = "javaHello";
 	assertTrue(str3.endsWith("ello"));
+	assertFalse(str3.endsWith("Ello"));
 	assertFalse(str3.endsWith("lello"));
 	}
 	@Test
@@ -123,8 +134,8 @@ class HW1StringTest  {
 	void indexOfTest() {
 		String myStr = "Hello planet earth, you are a great planet.";
 		assertEquals(6, myStr.indexOf("planet"));
-		assertEquals(1, myStr.indexOf("e")); // eq 125
-		assertTrue(1==myStr.indexOf("e"));   // eq 124
+		assertEquals(1, myStr.indexOf("e")); // eq 138
+		assertTrue(1==myStr.indexOf("e"));   // eq 137
 	}
 	@Test
 	void  isEmptyTest() {
@@ -139,8 +150,11 @@ class HW1StringTest  {
 	void lastIndexOfTest() {
 		String myStr = "Hello planet earth, you are a great planet.";
 		assertEquals(36, myStr.lastIndexOf("planet"));
-		assertEquals(40, myStr.lastIndexOf("e")); // eq 141
-		assertTrue(40==myStr.lastIndexOf("e"));   // eq 140
+		assertEquals(40, myStr.lastIndexOf("e")); // eq 154
+		assertTrue(40==myStr.lastIndexOf("e")); // eq 153
+		assertEquals(40, myStr.lastIndexOf('e'));
+		assertEquals(-1, myStr.lastIndexOf('E'));
+		assertTrue(myStr.lastIndexOf('E')<0);
 	}
 	@Test
 	void lengthTest() {
